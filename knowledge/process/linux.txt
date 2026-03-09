@@ -1,0 +1,367 @@
+# Linux 指令知識庫
+
+## 建立 Python 虛擬環境
+用途：
+建立 Python 專案虛擬環境
+
+指令：
+```bash
+python3 -m venv venv
+```
+
+## 啟動 Python 虛擬環境
+用途：
+啟動虛擬環境，使 Python 套件安裝在專案中
+
+指令：
+```bash
+source venv/bin/activate
+```
+
+## 離開 Python 虛擬環境
+用途：
+退出虛擬環境
+
+指令：
+```bash
+deactivate
+```
+
+## 查看目前資料夾位置
+用途：
+顯示目前所在的資料夾路徑
+
+指令：
+```bash
+pwd
+```
+
+## 查看 Python 版本
+用途：
+確認目前使用的 Python 版本
+
+指令：
+```bash
+python --version
+```
+
+# Linux 資料夾操作
+
+## 查看資料夾內容
+用途：
+列出資料夾中的檔案
+
+指令：
+```bash
+ls
+```
+
+## 查看資料夾詳細資訊
+用途：
+顯示檔案權限、大小、時間
+
+指令：
+```bash
+ls -l
+```
+
+## 顯示隱藏檔案
+用途：
+顯示隱藏檔案（例如 .git）
+
+指令：
+```bash
+ls -a
+```
+
+## 進入資料夾
+用途：
+切換到指定資料夾
+
+指令：
+```bash
+cd 資料夾名稱
+```
+
+## 回到上一層資料夾
+用途：
+回到父資料夾
+
+指令：
+```bash
+cd ..
+```
+
+## 回到 home 資料夾
+用途：
+回到使用者主目錄
+
+指令：
+```bash
+cd ~
+```
+
+## 建立資料夾
+用途：
+建立新的資料夾
+
+指令：
+```bash
+mkdir 資料夾名稱
+```
+
+## 建立多層資料夾
+用途：
+一次建立多層目錄
+
+指令：
+```bash
+mkdir -p folder/subfolder
+```
+
+## 刪除資料夾
+用途：
+刪除資料夾及其內容
+
+指令：
+```bash
+rm -r 資料夾名稱
+```
+
+# Linux 檔案操作
+
+## 建立檔案
+用途：
+建立新的檔案
+
+指令：
+```bash
+touch filename.py
+```
+
+## 查看檔案內容
+用途：
+顯示檔案內容
+
+指令：
+```bash
+cat filename.py
+```
+
+## 修改檔案名稱
+用途：
+重新命名檔案
+
+指令：
+```bash
+mv oldname newname
+```
+
+## 移動檔案
+用途：
+移動檔案到其他資料夾
+
+指令：
+```bash
+mv file 資料夾/
+```
+
+## 複製檔案
+用途：
+複製檔案
+
+指令：
+```bash
+cp file file_copy
+```
+
+## 刪除檔案
+用途：
+刪除檔案
+
+指令：
+```bash
+rm file
+```
+
+## 查看檔案大小
+用途：
+顯示檔案或資料夾大小
+
+指令：
+```bash
+du -h
+```
+
+# Linux 搜尋工具
+
+## 搜尋檔案中的文字
+用途：
+在檔案中搜尋指定文字
+
+指令：
+```bash
+grep "Hello" file
+```
+
+## 搜尋資料夾中的關鍵字
+用途：
+在資料夾所有檔案中搜尋關鍵字
+
+指令：
+```bash
+grep -r "print" .
+```
+
+## 搜尋並顯示行號
+用途：
+顯示關鍵字所在行號
+
+指令：
+```bash
+grep -n "print" file
+```
+
+## 搜尋忽略大小寫
+用途：
+忽略大小寫搜尋
+
+指令：
+```bash
+grep -i "Hello" file
+```
+
+## 搜尋資料夾並顯示行號
+用途：
+遞迴搜尋並顯示行號
+
+指令：
+```bash
+grep -rn "print" .
+```
+
+## 使用 pipe 搜尋文字
+用途：
+透過管道搜尋文字
+
+指令：
+```bash
+cat file | grep print
+```
+
+## 搜尋專案中的 Python 檔案
+用途：
+找到專案所有 .py 檔案
+
+指令：
+```bash
+find . -name "*.py"
+```
+
+# Linux 系統監控
+
+## 查看系統資源
+用途：
+查看 CPU / memory 使用狀況
+
+指令：
+```bash
+top
+```
+
+## 更進階系統監控
+用途：
+更好用的系統監控工具
+
+指令：
+```bash
+htop
+```
+
+# Terminal 快捷鍵
+
+## 中斷目前指令
+用途：
+停止正在執行的程式
+
+快捷鍵：
+Ctrl + C
+
+## 清除終端畫面
+用途：
+清空 terminal 畫面
+
+快捷鍵：
+Ctrl + L
+
+# 標準專案結構
+
+## 建立標準 ML / NLP 專案資料夾
+指令：
+```bash
+mkdir -p src data/{raw,processed,external}
+```
+
+## data 資料夾用途
+raw：原始資料  
+processed：清理後資料  
+external：外部資料來源
+
+## src 程式碼結構
+src 包含：
+
+__init__.py → Python package  
+main.py → 程式入口  
+preprocess.py → 資料清理  
+tokenizer.py → tokenization  
+model.py → NLP architecture  
+pipeline.py → 串聯整體流程
+
+# Python 套件管理
+
+## 匯出 Python 套件
+用途：
+記錄專案套件
+
+指令：
+```bash
+pip freeze > requirements.txt
+```
+
+## 重新安裝套件
+用途：
+依 requirements.txt 安裝套件
+
+指令：
+```bash
+pip install -r requirements.txt
+```
+
+# VS Code Terminal
+
+## 開啟 Terminal
+快捷鍵：
+Ctrl + `
+
+## 關閉 Terminal
+指令：
+```bash
+exit
+```
+
+# Tree 指令
+
+## 顯示專案資料夾結構
+用途：
+查看專案資料夾結構
+
+指令：
+```bash
+tree
+```
+
+## 安裝 tree
+指令：
+```bash
+sudo apt install tree
+```

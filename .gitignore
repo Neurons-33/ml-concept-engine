@@ -1,0 +1,22 @@
+# environment variables
+.env
+.env.*
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual environment
+venv/
+.venv/
+
+# vscode
+.vscode/
+
+# streamlit
+.streamlit/
+
+# system
+.DS_Store
