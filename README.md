@@ -71,7 +71,7 @@ ML Concept Engine 是一個 AI 輔助知識系統，
 
 ## 系統流程
 
-
+```text
 使用者輸入問題
     ↓
 Streamlit Web App
@@ -87,6 +87,7 @@ Upload Image to Cloudinary
 Save Card Metadata to Supabase
     ↓
 Return Result to Frontend
+```
 
 ---
 
