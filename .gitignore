@@ -1,4 +1,5 @@
 # environment variables
+src/app/generated_cards/
 .env
 .env.*
 
