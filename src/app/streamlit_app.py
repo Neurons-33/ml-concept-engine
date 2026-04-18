@@ -477,3 +477,5 @@ try:
 
 except Exception as e:
     st.warning(f"無法讀取歷史卡片: {e}")
+
+# force redeploy
