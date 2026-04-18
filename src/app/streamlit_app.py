@@ -44,7 +44,7 @@ FONT_PATH = os.path.join(ASSETS_DIR, "fonts", "NotoSansCJK-Regular.ttc")
 FONT_BOLD_PATH = os.path.join(ASSETS_DIR, "fonts", "NotoSansCJK-Bold.ttc")
 
 if not os.path.exists(CARDS_DIR):
-    os.makedirs(CARDS_DIR)
+    os.makedirs(CARDS_DIR, exist_ok=True)
 
 if not os.path.exists(FONT_PATH):
     FONT_PATH = os.path.join(PROJECT_ROOT, "fonts", "NotoSansCJK-Regular.ttc")
