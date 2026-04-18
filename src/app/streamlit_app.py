@@ -21,7 +21,7 @@ from core.report_generator import generate_report
 import core.config
 from core.cloudinary_uploader import upload_pil_image
 from core.supabase_client import insert_card, get_latest_cards, get_cards_count
-
+import streamlit.components.v1 as components
 
 # =========================
 # Environment
