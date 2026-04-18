@@ -275,6 +275,39 @@ if "last_query_time" not in st.session_state: st.session_state.last_query_time =
 # Streamlit Page Config
 # =========================
 st.set_page_config(page_title="ML Knowledge RAG", layout="wide")
+import streamlit.components.v1 as components
+
+# 防止重複記錄
+if "umami_tracked" not in st.session_state:
+    st.session_state.umami_tracked = False
+
+# 載入 Umami script
+components.html(
+    """
+    <script>
+      window.umami = window.umami || function(){(window.umami.q=window.umami.q||[]).push(arguments)}
+    </script>
+
+    <script defer src="https://cloud.umami.is/script.js"
+            data-website-id="16a8d9bc-f281-42d3-b793-6a45f2075ae">
+    </script>
+    """,
+    height=0,
+)
+
+# 只送一次 pageview
+if not st.session_state.umami_tracked:
+    components.html(
+        """
+        <script>
+          if (window.umami) {
+            umami.track('pageview');
+          }
+        </script>
+        """,
+        height=0,
+    )
+    st.session_state.umami_tracked = True
 st.title("ML Concept Engine")
 
 # =========================
