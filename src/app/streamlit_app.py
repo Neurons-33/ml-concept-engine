@@ -281,19 +281,13 @@ st.set_page_config(page_title="ML Knowledge RAG", layout="wide")
 if "umami_loaded" not in st.session_state:
     st.session_state.umami_loaded = True
 
-    components.html(
+    st.markdown(
         """
-        <script>
-        const script = document.createElement('script');
-        script.src = "https://cloud.umami.is/script.js";
-        script.defer = true;
-        script.setAttribute("data-website-id", "16a8d9bc-f281-42d3-b793-6a451f2075ae");
-
-        // 插入到主頁 head（不是 iframe）
-        window.parent.document.head.appendChild(script);
-        </script>
+        <!-- Umami Analytics -->
+        <script defer src="https://cloud.umami.is/script.js"
+                data-website-id="16a8d9bc-f281-42d3-b793-6a451f2075ae"></script>
         """,
-        height=0,
+        unsafe_allow_html=True
     )
 
 st.title("ML Concept Engine")
