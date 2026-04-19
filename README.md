@@ -1,6 +1,6 @@
 # ML Concept Engine
 
-一個基於 **LLM + RAG** 的機器學習概念解釋系統，  
+一個基於 **LLM + RAG** 的知識庫系統，  
 可以將技術概念自動轉換成 **結構化說明與視覺知識卡片**。
 
 🔗 Live Demo  
@@ -12,12 +12,12 @@ https://ml-concept-engine.streamlit.app/
 
 ML Concept Engine 是一個 AI 輔助知識系統，  
 透過 **Retrieval Augmented Generation (RAG)**  
-從整理好的機器學習知識庫中檢索內容，  
+從整理好的知識庫中檢索內容，  
 並使用 LLM 生成結構化技術解釋。
 
 系統會自動產生：
 
-- 機器學習概念說明
+- 內容概念說明
 - 檢索到的知識來源
 - 視覺化知識卡片
 
@@ -30,23 +30,35 @@ ML Concept Engine 是一個 AI 輔助知識系統，
 - model capacity
 - attention mechanism
 
-系統就會生成完整的技術說明與知識卡片。
+系統就會生成完整的技術說明與知識卡片。 
+
+(以上為本專案整理內容，內容可由使用者自訂義)
 
 ---
 
-## Demo
+## Demo展示
 
 ### Knowledge Base (RAG Source)
 
-系統會從整理好的機器學習知識庫中檢索概念內容。
+系統會從整理好的知識庫中檢索概念內容。
 
-![Knowledge Base](assets/demo/demo_kb.png)
+<img src="assets/demo/demo_kb.png" width="300">
+
+
+## 使用者資料夾結構設置
+
+```text
+knowledge/
+└── 主題（domain）
+    └── 概念分類（category）
+        └── 概念文件（.md）
+```
 
 ---
 
 ### Web Interface
 
-使用者可以輸入機器學習問題。
+使用者可以輸入問題。
 
 ![Web UI](assets/demo/demo_ui.png)
 
@@ -56,16 +68,50 @@ ML Concept Engine 是一個 AI 輔助知識系統，
 
 系統會生成結構化知識卡片。
 
-![Knowledge Card](assets/demo/demo_card.png)
+<img src="assets/demo/demo_card.png" width="400">
 
 ---
 
 ## 使用提示
 
-- 本專案 UI 目前以 **桌面瀏覽器** 為主要設計目標
-- 首次開啟可能需要 **數秒載入時間**
+將 Markdown 文件放入：
 
-建議使用較大螢幕瀏覽
+```text
+knowledge/
+```
+
+系統會自動：
+
+- 掃描所有 .md
+- 切分為語意片段（chunks）
+- 建立向量表示（embedding）
+
+使用者輸入問題後：
+
+- 系統從知識庫中找出最相關內容
+- 組合後交由 LLM 生成回答
+
+### 設計原則
+
+- 不依賴資料夾或檔名
+- 檢索完全基於內容語意
+- 新增資料不需修改程式
+
+### 優點
+
+- 使用門檻低（放檔案即可用）
+- 可自由擴展知識內容
+- 適合跨領域學習與整理
+
+### 目前限制
+
+- 資料多時可能檢索不精準
+- 檢索範圍不可控（無分類過濾）
+
+### 注意事項
+
+- context 過多時會增加 token 成本
+- 使用者資料夾結構影響 可查詢表格 UI 呈現方式
 
 ---
 
@@ -93,7 +139,7 @@ Return Result to Frontend
 
 ## 系統功能
 
-### 機器學習概念問答
+### 知識庫概念問答
 
 使用 LLM 生成技術說明。
 
