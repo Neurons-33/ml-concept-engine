@@ -1,4 +1,5 @@
 # ML Concept Engine
+Article: [Read on Medium](https://medium.com/@fengyun3999/你真的記得你寫過的筆記嗎-593f8f200b18)
 
 一個基於 **LLM + RAG** 的知識庫系統，  
 可以將技術概念自動轉換成 **結構化說明與視覺知識卡片**。
